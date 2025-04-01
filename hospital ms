@@ -18,3 +18,34 @@ struct Patient {
     string medicalID;
     MedicalHistory* historyHead; // Linked list for medical history
 };
+// Patient Management
+void addPatient() {
+    if (patientCount >= MAX_PATIENTS) {
+        cout << "Patient database is full!" << endl;
+        return;
+    }
+    cout << "Enter patient name: ";
+    cin.ignore();
+    getline(cin, patients[patientCount].name);
+    cout << "Enter patient age: ";
+    cin >> patients[patientCount].age;
+    cout << "Enter medical ID: ";
+    cin >> patients[patientCount].medicalID;
+    patients[patientCount].historyHead = NULL; // Initialize linked list
+    patientCount++;
+    cout << "Patient added successfully!\n";
+}
+
+void updatePatient(string medicalID) {
+    int index = searchPatient(medicalID);
+    if (index == -1) {
+        cout << "Patient not found!" << endl;
+        return;
+    }
+    cout << "Enter new name: ";
+    cin.ignore();
+    getline(cin, patients[index].name);
+    cout << "Enter new age: ";
+    cin >> patients[index].age;
+    cout << "Patient updated successfully!\n";
+}
