@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Structure for medical history (linked list)
+struct MedicalHistory {
+    string visitDate;
+    string diagnosis;
+    string prescription;
+    string appointment;
+    MedicalHistory* next;
+};
+
+// Structure for patient record (array storage)
+struct Patient {
+    string name;
+    int age;
+    string medicalID;
+    MedicalHistory* historyHead; // Linked list for medical history
+};
